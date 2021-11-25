@@ -1,5 +1,5 @@
 <?php
-echo "Hello there, this is a PHP Apache container";
+echo "Hello there, this is a PHP Apache container <br>";
 
 // The MySQL service named in the docker-compose.yml.
 $host = '172.20.0.2';
@@ -15,21 +15,20 @@ $conn = new mysqli($host, $user, $pass);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
-    echo "Connected to MySQL server successfully!";
+    echo "Connected to MySQL server successfully! <br>";
 }
 
 // select query
 $sql = 'SELECT * FROM users';
 
-if ($result = $conn->query($sql)) {
-    while ($data = $result->fetch_object()) {
-        $users[] = $data;
-    }
-}
+$result = $conn->query($sql);
 
-foreach ($users as $user) {
-    echo "<br>";
-    echo $user->username . " " . $user->password;
-    echo "<br>";
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "username: " . $row["username"]. " - password: " . $row["password"]. "<br>";
+  }
+} else {
+  echo "0 results";
 }
 ?>

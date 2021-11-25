@@ -6,7 +6,7 @@ services:
     depends_on:
       - db
     volumes:
-      - php:./php/src:/var/www/html/
+      - ./php/src:/var/www/html/
     ports:
       - 8000:80
     networks:
@@ -28,7 +28,6 @@ services:
       - backend
 
 volumes:
-  php:
   db:
 
 networks:
