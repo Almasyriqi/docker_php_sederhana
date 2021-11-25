@@ -10,8 +10,11 @@ $user = 'root';
 //database user password
 $pass = 'admin';
 
+// database name
+$mydatabase = 'php_user';
+
 // check the MySQL connection status
-$conn = new mysqli($host, $user, $pass);
+$conn = new mysqli($host, $user, $pass, $mydatabase);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
