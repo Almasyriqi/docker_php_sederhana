@@ -10,7 +10,7 @@ services:
     ports:
       - 8000:80
     networks:
-      - backend
+      - backend-php
 
   db:
     container_name: db
@@ -31,7 +31,7 @@ volumes:
   db:
 
 networks:
-  backend:
+  backend-php:
     name: backend-network-php
     ipam:
       driver: default
