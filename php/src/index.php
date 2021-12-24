@@ -2,7 +2,7 @@
 echo "Hello there, this is a PHP Apache container <br>";
 
 // The MySQL service named in the docker-compose.yml.
-$host = '172.20.0.2';
+$host = '172.10.0.2';
 
 // Database use name
 $user = 'root';
